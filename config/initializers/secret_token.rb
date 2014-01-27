@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-WhoAreBetter::Application.config.secret_key_base = '78f3da022e09590fa087648932f17c7bf7e06aeb21e82c0c075bfa47e507e3fcb838a83c781d6fa02e9edf01cad32e2c448a050a661d1fd8855fe4b06f7e1356'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+WhoAreBetter::Application.config.secret_key_base = secure_token
