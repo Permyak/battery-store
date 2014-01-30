@@ -1,5 +1,6 @@
 WhoAreBetter::Application.routes.draw do
-  get "pages/home"
+  root  'pages#home'
+  match '/id', to: 'pages#id', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
