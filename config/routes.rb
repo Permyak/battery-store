@@ -1,12 +1,17 @@
 WhoAreBetter::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+ 
   
   root  'pages#home'
+  #root 'search#new'
+  match '/', to: 'stats#new', via: 'get'
   match '/id', to: 'pages#id', via: 'get'
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'  
   match '/signout', to: 'sessions#destroy',     via: 'delete'
+  match '/search', to: 'infos#redirect', via: 'get'
+  match '/info/:steamid(.:format)', to: 'infos#show', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

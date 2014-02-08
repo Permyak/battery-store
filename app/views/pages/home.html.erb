@@ -2,9 +2,8 @@
   <h2>
     Game's stats and ratings
   </h2>
-  <%= form_tag(id_path, method: "get") do %>
-    <%= label_tag(:searchForm, "Steam user's name, e.g. qshaman") %>
-    <%= text_field_tag(:searchForm) %>
-    <%= submit_tag("Search") %>
+  <%= form_tag('search', method: "get") do %>
+	<%= text_field_tag "steamid", nil, :placeholder => "Steam user's name, e.g. qshaman" %>
+    <%= submit_tag("Go") %>
   <% end %>
 </div>

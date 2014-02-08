@@ -1,0 +1,9 @@
+<div class="center hero-unit">
+  <h2>
+    Game's stats and ratings
+  </h2>
+  <%= form_for @stat do |f| %>
+      <%= f.text_field :steamId, :placeholder => "Steam user's name, e.g. qshaman"%>
+      <%= f.submit "Go", class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>
