@@ -1,3 +1,3 @@
-It's awesome project
-[*WhoAreBetter*](http://WhoAreBetter.com/)
-by [Capsolla Team](http:/Capsolla.com/).
+It's awesome project about game's statistics
+[*WhoAreBetter*](https://koteam.herokuapp.com/)
+by [KoTeam](http:/KoTeam.org/).
