@@ -1,0 +1,57 @@
+<%= form_for(@battery) do |f| %>
+  <% if @battery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@battery.errors.count, "error") %> prohibited this battery from being saved:</h2>
+
+      <ul>
+      <% @battery.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :chem_composition %><br>
+    <%= f.text_field :chem_composition %>
+  </div>
+  <div class="field">
+    <%= f.label :color %><br>
+    <%= f.text_field :color %>
+  </div>
+  <div class="field">
+    <%= f.label :voltage %><br>
+    <%= f.text_field :voltage %>
+  </div>
+  <div class="field">
+    <%= f.label :capacity %><br>
+    <%= f.text_field :capacity %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :element_count %><br>
+    <%= f.number_field :element_count %>
+  </div>
+  <div class="field">
+    <%= f.label :netto %><br>
+    <%= f.text_field :netto %>
+  </div>
+  <div class="field">
+    <%= f.label :brutto %><br>
+    <%= f.text_field :brutto %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.number_field :price %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

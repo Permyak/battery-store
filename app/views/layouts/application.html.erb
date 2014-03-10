@@ -1,21 +1,25 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
-  <title>Who Are Better?</title>
+  <title>BatteryStore?</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= favicon_link_tag 'favicon.ico' %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/shim' %>
 </head>
 <body>
-	<%= render 'layouts/header' %>
-    <div class="container">
-	  <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>"><%= value %></div>
-      <% end %>
-      <%= yield %>
-	  <%= render 'layouts/footer' %>
-	  <%= debug(params) if Rails.env.development? %>
+  <div id="wrap">
+    <div id="header">
+	    <%= render 'layouts/header' %>
+    </div>
+    <div id="content_body">
+			  <%= yield %>
+    </div>
+    <div id="footer">
+	    <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
     </div>
 </body>
 </html>

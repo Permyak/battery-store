@@ -3,4 +3,8 @@ class PagesController < ApplicationController
   end
   def id
   end
+  def faq
+  end
+  def cart
+  end
 end

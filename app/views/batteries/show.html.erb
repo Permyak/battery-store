@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @battery.code %>
+</p>
+
+<p>
+  <strong>Chem composition:</strong>
+  <%= @battery.chem_composition %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @battery.color %>
+</p>
+
+<p>
+  <strong>Voltage:</strong>
+  <%= @battery.voltage %>
+</p>
+
+<p>
+  <strong>Capacity:</strong>
+  <%= @battery.capacity %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @battery.description %>
+</p>
+
+<p>
+  <strong>Element count:</strong>
+  <%= @battery.element_count %>
+</p>
+
+<p>
+  <strong>Netto:</strong>
+  <%= @battery.netto %>
+</p>
+
+<p>
+  <strong>Brutto:</strong>
+  <%= @battery.brutto %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @battery.price %>
+</p>
+
+<%= link_to 'Edit', edit_battery_path(@battery) %> |
+<%= link_to 'Back', batteries_path %>

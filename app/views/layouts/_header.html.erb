@@ -5,12 +5,12 @@
             <div class="span2">
 		       <%= link_to image_tag("mylogo.png", alt: "batterystore.com"), '#' %>
 		    </div>
-		  <div class="span9 offset1">
+		  <div class="span8 offset2">
             <%= link_to "Battery Store", root_path, id: "logo" %>
             <nav>
               <ul class="nav pull-right">
-			      <li><%= link_to "Корзина", root_path %></li>
-				  <li><%= link_to "FAQ", root_path %></li>
+			      <li><%= link_to "Корзина", cart_path%></li>
+				  <li><%= link_to "FAQ", faq_path %></li>
 					<% if signed_in? %>
 				  <li><%= link_to "Users", '#' %></li>
 				  <li id="fat-menu" class="dropdown">

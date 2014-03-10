@@ -1,0 +1,45 @@
+<h1>Listing batteries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Code</th>
+      <th>Chem composition</th>
+      <th>Color</th>
+      <th>Voltage</th>
+      <th>Capacity</th>
+      <th>Description</th>
+      <th>Element count</th>
+      <th>Netto</th>
+      <th>Brutto</th>
+      <th>Price</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @batteries.each do |battery| %>
+      <tr>
+        <td><%= battery.code %></td>
+        <td><%= battery.chem_composition %></td>
+        <td><%= battery.color %></td>
+        <td><%= battery.voltage %></td>
+        <td><%= battery.capacity %></td>
+        <td><%= battery.description %></td>
+        <td><%= battery.element_count %></td>
+        <td><%= battery.netto %></td>
+        <td><%= battery.brutto %></td>
+        <td><%= battery.price %></td>
+        <td><%= link_to 'Show', battery %></td>
+        <td><%= link_to 'Edit', edit_battery_path(battery) %></td>
+        <td><%= link_to 'Destroy', battery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Battery', new_battery_path %>

@@ -11,7 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140203101628) do
+ActiveRecord::Schema.define(version: 20140309232936) do
+
+  create_table "batteries", force: true do |t|
+    t.string   "code"
+    t.string   "chem_composition"
+    t.string   "color"
+    t.float    "voltage"
+    t.string   "capacity"
+    t.string   "description"
+    t.integer  "element_count"
+    t.float    "netto"
+    t.float    "brutto"
+    t.integer  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "infos", force: true do |t|
+    t.integer  "steamid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"
