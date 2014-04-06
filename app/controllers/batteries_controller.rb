@@ -69,6 +69,6 @@ class BatteriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def battery_params
-      params.require(:battery).permit(:code, :chem_composition, :string, :color, :voltage, :capacity, :int, :description, :element_count, :netto, :brutto, :price)
+      params.require(:battery).permit(:code, :chem_composition, :string, :color, :voltage, :capacity, :int, :description, :element_count, :netto, :brutto, :price, :image)
     end
 end

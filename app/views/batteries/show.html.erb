@@ -1,54 +1,34 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Code:</strong>
-  <%= @battery.code %>
+﻿<p id="battery_name_info">
+  Аккумуляторная батарея BatteryStore BS-<%= @battery.code %> для ноутбука Clevo
 </p>
+<div class="container">
+		<div class="row">
+            <div class="span3 offset1">
+			  <%= image_tag @battery.image.url %>
+			  <p id="battery_price_info"> Цена: <strong><%= @battery.price %>P</strong></p>
+			   <button class="btn btn-success">Купить</button>
+			   <button class="btn btn-success">В корзину</button>
+			</div>
+			<div class="span5">
+			  <dl>
+				<dt>Технические характеристики:</dt>
+				<dd>Емкость (mAh)..................4400</dd>
+				<dd>Напряжение (V)................11,1</dd>
+				<dd>Цвет................................Чёрный</dd>
+				<dd>Количество элементов.......6</dd>
+				<dd>Тип элементов..................Li-ion</dd>
+				<dd>Вес (кг)...........................0,35</dd>
+				<dt>Описание:</dt>
+				<dd>Аккумуляторная батарея для ноутбука Clevo литий-ионная стандартной емкости. Предназначена для питания ноутбука Clevo. Производство Китай. Товар сертифицирован. Гарантия 6 месяцев.</dd>
+			  </dl>
+			</div>
+		</div>
+</div>		
 
-<p>
-  <strong>Chem composition:</strong>
-  <%= @battery.chem_composition %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @battery.color %>
-</p>
-
-<p>
-  <strong>Voltage:</strong>
-  <%= @battery.voltage %>
-</p>
-
-<p>
-  <strong>Capacity:</strong>
-  <%= @battery.capacity %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @battery.description %>
-</p>
-
-<p>
-  <strong>Element count:</strong>
-  <%= @battery.element_count %>
-</p>
-
-<p>
-  <strong>Netto:</strong>
-  <%= @battery.netto %>
-</p>
-
-<p>
-  <strong>Brutto:</strong>
-  <%= @battery.brutto %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @battery.price %>
-</p>
 
 <%= link_to 'Edit', edit_battery_path(@battery) %> |
 <%= link_to 'Back', batteries_path %>
+
+<p id="battery_name_info">
+  Совместимые батареи
+</p>

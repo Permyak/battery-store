@@ -88,7 +88,7 @@ p {
   letter-spacing: -1px;
   padding-top: 25px;
   font-weight: bold;
-  line-height: 2.8;
+  line-height: 2.1;
 }
 
 #logo:hover {
@@ -119,7 +119,6 @@ p {
   }
 
 #btn_go{
-  margin-top: 10px;
 }
 
 #personaname{
@@ -148,11 +147,27 @@ p {
   height:29px; 
 }
 
+
 #menu_text{
-font-size: 1.2em;
+font-size: 1em;
 margin-bottom: 3px;
 }
 #txb_search{
+}
+#battery_name_info{
+  font-size: 1.6em;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #000;
+}
+#battery_price_info{
+  font-size: 1.6em;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #000;
 }
 
   /* forms */

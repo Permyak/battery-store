@@ -14,7 +14,13 @@
 	    <%= render 'layouts/header' %>
     </div>
     <div id="content_body">
+		<div class="container">
+		<div class="row">
+		<%= render 'layouts/leftmenu' %>
+		<%= render 'layouts/rightpart' %>
 			  <%= yield %>
+	    </div>
+		</div>
     </div>
     <div id="footer">
 	    <%= render 'layouts/footer' %>
