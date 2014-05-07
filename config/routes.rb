@@ -21,6 +21,8 @@ WhoAreBetter::Application.routes.draw do
   match '/faq', to: 'pages#faq', via: 'get'
   match '/cart', to: 'pages#cart', via: 'get'
   match '/info/:searchline(.:format)', to: 'infos#show', via: 'get'
+  match '/send/:battery(.:format)', to: 'comments#add', via: 'get'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

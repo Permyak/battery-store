@@ -1,6 +1,18 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+  def add
+    if signed_in?
+	@comment = Comment.new(text: params["text"],
+	battery: (Battery.find_by code:params["battery"]), 
+	user: current_user)
+	@comment.save
+	redirect_to (Battery.find_by code:params["battery"]), notice: 'Comment was successfully created.'
+	else
+	redirect_to (Battery.find_by code:params["battery"])
+	
+	end
+  end
   # GET /comments
   # GET /comments.json
   def index
