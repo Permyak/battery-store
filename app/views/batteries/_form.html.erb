@@ -1,4 +1,4 @@
-<%= form_for(@battery) do |f| %>
+﻿<%= form_for(@battery) do |f| %>
   <% if @battery.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@battery.errors.count, "error") %> prohibited this battery from being saved:</h2>
@@ -44,10 +44,6 @@
     <%= f.text_field :netto %>
   </div>
   <div class="field">
-    <%= f.label :brutto %><br>
-    <%= f.text_field :brutto %>
-  </div>
-  <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
@@ -55,6 +51,12 @@
     <%= f.label :image %><br>
     <%= f.file_field :image %>
   </div>
+  <div class="field">
+    <%= f.label :models %><br>
+    <%= f.select :model_ids, Model.all.collect {|x| [x.name, x.id]}, {},
+                                   { :multiple => true} %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

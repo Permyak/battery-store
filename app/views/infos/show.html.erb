@@ -1,2 +1,16 @@
-<% provide(:title) %>
-<h2><%= @info%></h2>
+﻿<% provide(:title) %>
+<h2 align="center">Найденная батарея по запросу <%= params[:searchline] %>:</h2>
+
+<div class="container">
+	<div class="row">
+		<div class="span8 offset1">	
+			<h3>
+			<% if !@info["result"].nil? %>			  
+				 <%= link_to @info["result"].code, @info["result"] %></td>
+			<% else %>	
+				Извините, в магазине нет батарей, удовлетворяющих запросу
+			<% end %>
+		    </h3>
+        </div>
+	</div>
+</div>

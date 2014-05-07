@@ -3,13 +3,13 @@ class InfosController < ApplicationController
 	redirect_to "/info/"+params[:searchString]
   end
   def show
-    
-    searchInDB(params[:searchString])#get info about user with steam id
+    searchInDB(params[:searchline])
   end
   
   private
 	
 	def searchInDB(searchString)	
-	  @info=searchString
+	  @info={}
+	  @info["result"]=Battery.find_by code: searchString
 	end
 end

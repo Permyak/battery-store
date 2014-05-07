@@ -1,34 +1,73 @@
 ﻿<p id="battery_name_info">
-  Аккумуляторная батарея BatteryStore BS-<%= @battery.code %> для ноутбука Clevo
+  Аккумуляторная батарея BS-<%= @battery.code %> для ноутбука Clevo
 </p>
 <div class="container">
 		<div class="row">
             <div class="span3 offset1">
 			  <%= image_tag @battery.image.url %>
 			  <p id="battery_price_info"> Цена: <strong><%= @battery.price %>P</strong></p>
-			   <button class="btn btn-success">Купить</button>
-			   <button class="btn btn-success">В корзину</button>
+			  <div align=center>
+			   <a href="#">
+			     <button class="btn btn-success" >Купить</button>
+			   </a>
+			  </div>
 			</div>
 			<div class="span5">
 			  <dl>
 				<dt>Технические характеристики:</dt>
-				<dd>Емкость (mAh)..................4400</dd>
-				<dd>Напряжение (V)................11,1</dd>
-				<dd>Цвет................................Чёрный</dd>
-				<dd>Количество элементов.......6</dd>
-				<dd>Тип элементов..................Li-ion</dd>
-				<dd>Вес (кг)...........................0,35</dd>
+				<% if !@battery.capacity.blank? %>
+				<dd>Емкость (mAh)..................<%= @battery.capacity %></dd>
+				<% end %>
+				<% if !@battery.voltage.blank? %>
+				<dd>Напряжение (V)................<%= @battery.voltage %></dd>
+				<% end %>
+				<% if !@battery.color.blank? %>
+				<dd>Цвет................................<%= @battery.color %></dd>
+				<% end %>
+				<% if !@battery.element_count.blank? %>
+				<dd>Количество элементов.......<%= @battery.element_count %></dd>
+				<% end %>
+				<% if !@battery.chem_composition.blank? %>
+				<dd>Тип элементов..................<%= @battery.chem_composition %></dd>
+				<% end %>
+				<% if !@battery.description.blank? %>
 				<dt>Описание:</dt>
-				<dd>Аккумуляторная батарея для ноутбука Clevo литий-ионная стандартной емкости. Предназначена для питания ноутбука Clevo. Производство Китай. Товар сертифицирован. Гарантия 6 месяцев.</dd>
+				<dd><%= @battery.description %></dd>
+				<% end %>
 			  </dl>
 			</div>
 		</div>
 </div>		
+<br>
+<div class="container">
+		<div class="row">
+            <div class="span6 offset4">
+				<p id="battery_name_info">
+				Отзывы пользователей:
+				</p>
+			</div>
+		</div>
+		<div class="row">
+            <div class="span8 offset3">
+				<div class="well well-small">
+				Небольшой отчет, может кому поможет с выбором. Уже прошла неделя, как купил телек. Ну пока косяков не нашел, все устраивает, три дэ супер, куча фильмов на три дэ торренте. В комплекте 2 пульта, один обычный, второй мэджик чета там)) Короче как мышкой управляешь им. Один минус (ну даже можно сказать не минус это): Чтобы пользоваться скайпом нужна спец камера, а она дорогая... В принципе нафиг не нужен он, есть комп и хватит)) Вайфай работает отлично, в инете с ютуба ролики смотрю без тормозов, так же с иви кинотеатра фильмы идут отлично...
+				<br>
+				<br>
+					20.05.2013 <strong>Виталий</strong>
+					</div>
+					<div class="well well-small">
+				Небольшой отчет, может кому поможет с выбором. Уже прошла неделя, как купил телек. Ну пока косяков не нашел, все устраивает, три дэ супер, куча фильмов на три дэ торренте. В комплекте 2 пульта, один обычный, второй мэджик чета там)) Короче как мышкой управляешь им. Один минус (ну даже можно сказать не минус это): Чтобы пользоваться скайпом нужна спец камера, а она дорогая... В принципе нафиг не нужен он, есть комп и хватит)) Вайфай работает отлично, в инете с ютуба ролики смотрю без тормозов, так же с иви кинотеатра фильмы идут отлично...
+				<br>
+				<br>
+					20.05.2013 <strong>Виталий</strong>
+				</div>
+				<h3> Оставьте свой отзыв о товаре BS-<%= @battery.code %>: </h3>
+				<textarea class="form-control" rows="5"></textarea>
+				<div align=center>
+				<button type="submit" class="btn">Отправить</button>
+				</div>
+				<br><br><br>
+			</div>
+		</div>
+</div>
 
-
-<%= link_to 'Edit', edit_battery_path(@battery) %> |
-<%= link_to 'Back', batteries_path %>
-
-<p id="battery_name_info">
-  Совместимые батареи
-</p>

@@ -47,7 +47,6 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
   font-size: 2em;
-  margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
   color: #000;
@@ -92,7 +91,7 @@ p {
 }
 
 #logo:hover {
-  color: #222;
+  color: #111;
   text-decoration: none;
 }
 
@@ -189,4 +188,8 @@ input {
   padding-top: 2px;
   padding-bottom: 2px;
   font-size: 1em;
+  background-color: #fff;
+}
+.nav-tabs > li > a:hover{
+  background-color: #fff;
 }

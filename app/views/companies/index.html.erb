@@ -1,0 +1,30 @@
+﻿<h2 align=center>Список компаний</h2>
+<div class="container">
+	<div class="row">
+	<div class="span6 offset1">	
+<table>
+  <thead>
+    <tr>
+      <th>Название</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <td><%= company.name %></td>
+        <td><%= link_to 'Показать', company %></td>
+        <td><%= link_to 'Изменить', edit_company_path(company) %></td>
+        <td><%= link_to 'Удалить', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Новая компания', new_company_path %>
+		</div>
+	</div>
+</div>

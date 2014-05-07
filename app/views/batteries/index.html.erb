@@ -1,4 +1,4 @@
-<h1>Listing batteries</h1>
+﻿<h2 align="center">Список батарей</h2>
 
 <table>
   <thead>
@@ -11,7 +11,7 @@
       <th>Description</th>
       <th>Element count</th>
       <th>Netto</th>
-      <th>Brutto</th>
+      <th>ModelsCount</th>
       <th>Price</th>
       <th></th>
       <th></th>
@@ -30,11 +30,11 @@
         <td><%= battery.description %></td>
         <td><%= battery.element_count %></td>
         <td><%= battery.netto %></td>
-        <td><%= battery.brutto %></td>
+        <td><%= battery.models.count %></td>
         <td><%= battery.price %></td>
         <td><%= link_to 'Show', battery %></td>
         <td><%= link_to 'Edit', edit_battery_path(battery) %></td>
-        <td><%= link_to 'Destroy', battery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', battery, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -42,4 +42,5 @@
 
 <br>
 
-<%= link_to 'New Battery', new_battery_path %>
+<%= link_to 'Новая батарея', new_battery_path %>
+<br><br><br><br>

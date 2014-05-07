@@ -1,0 +1,18 @@
+﻿<p id="notice"><%= notice %></p>
+<h2 align="center">Батареи для ноутбука модели BS-<%= @model.name %></h2>
+<div class="container">
+	<div class="row">
+		<div class="span8 offset1">	
+			<p>
+			<% if @model.batteries.count>0 %>
+			  <% @company.models.order(:name).each do |m| %>	
+				 <%= link_to m.name, m %></td>
+				 <br>
+		      <% end %>		
+			<% else %>	
+				Извините, в магазине нет батарей для ноутбуков данной модели.
+			<% end %>
+		    </p>
+        </div>
+	</div>
+</div>

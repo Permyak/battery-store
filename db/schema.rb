@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140405203309) do
+ActiveRecord::Schema.define(version: 20140507055143) do
 
   create_table "batteries", force: true do |t|
     t.string   "code"
@@ -32,11 +32,42 @@ ActiveRecord::Schema.define(version: 20140405203309) do
     t.datetime "image_updated_at"
   end
 
+  create_table "batteries_models", id: false, force: true do |t|
+    t.integer "battery_id"
+    t.integer "model_id"
+  end
+
+  create_table "comments", force: true do |t|
+    t.string   "text"
+    t.integer  "battery_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "comments", ["battery_id"], name: "index_comments_on_battery_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "infos", force: true do |t|
     t.integer  "steamid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "models", force: true do |t|
+    t.string   "name"
+    t.integer  "company_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "models", ["company_id"], name: "index_models_on_company_id"
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -1,4 +1,10 @@
 WhoAreBetter::Application.routes.draw do
+  resources :comments
+
+  resources :models
+
+  resources :companies
+
   resources :batteries
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
@@ -14,7 +20,7 @@ WhoAreBetter::Application.routes.draw do
   match '/search', to: 'infos#redirect', via: 'get'
   match '/faq', to: 'pages#faq', via: 'get'
   match '/cart', to: 'pages#cart', via: 'get'
-  match '/info/:steamid(.:format)', to: 'infos#show', via: 'get'
+  match '/info/:searchline(.:format)', to: 'infos#show', via: 'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
