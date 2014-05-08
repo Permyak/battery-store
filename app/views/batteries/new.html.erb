@@ -1,4 +1,5 @@
-﻿<h2 align=center>Новая батарея</h2>
+﻿<% if signed_in? && admin? %>
+<h2 align=center>Новая батарея</h2>
 <div class="container">
 	<div class="row">
 	<div class="span6 offset1">
@@ -7,3 +8,4 @@
 		</div>
 	</div>
 </div>
+<% end %>

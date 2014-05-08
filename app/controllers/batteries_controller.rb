@@ -28,14 +28,14 @@ class BatteriesController < ApplicationController
 
     respond_to do |format|
       if @battery.save
-	    #params[:battery][:model_ids].each do |categories|
-		#categories = Battery_Model.new(:model_id => models, :battery_id => @battery.id)
-		 #if categories.valid?
-		#   categories.save
-		# else
-		#   @errors += categories.errors
-		# end
-		#end
+	    params[:battery][:models].each do |model|
+		categories = Batteries_model.new(:model_id => model, :battery_id => @battery.id)
+		if categories.valid?
+		   categories.save
+		 else
+		   @errors += categories.errors
+		 end
+		end
         format.html { redirect_to @battery, notice: 'Battery was successfully created.' }
         format.json { render action: 'show', status: :created, location: @battery }
       else
@@ -77,6 +77,6 @@ class BatteriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def battery_params
-      params.require(:battery).permit(:code, :capacity, :voltage, :element_count, :color, :description, :chem_composition, :price)
+      params.require(:battery).permit(:code, :capacity, :voltage, :element_count, :color, :description, :chem_composition, :price, :models)
     end
 end

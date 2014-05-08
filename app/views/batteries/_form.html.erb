@@ -40,10 +40,6 @@
     <%= f.number_field :element_count %>
   </div>
   <div class="field">
-    <%= f.label :netto %><br>
-    <%= f.text_field :netto %>
-  </div>
-  <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
   </div>
@@ -53,7 +49,7 @@
   </div>
   <div class="field">
     <%= f.label :models %><br>
-    <%= f.select :model_ids, Model.all.collect {|x| [x.name, x.id]}, {},
+    <%= f.select :models, Model.all.collect {|x| [x.name, x.id]}, {},
                                    { :multiple => true} %>
   </div>
   

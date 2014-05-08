@@ -1,2 +1,40 @@
-<% provide(:title, @user.name) %>
-<h1><%= @user.name %></h1>
+﻿<% provide(:title, @user.name) %>
+<p id="notice"><%= notice %></p>
+<% if admin? %>
+<h2 align="center">Профиль администратора <%= @user.name %>:</h2>
+<% else %>
+<h2 align="center">Профиль пользователя <%= @user.name %>:</h2>
+<% end %>
+<div class="container">
+	<div class="row">
+		<div class="span8 offset1">	
+			<p>
+			
+			<% if current_user.purchases.count>0 %>
+			  <h3> История покупок: </h3>		
+			  <% current_user.purchases.each do |purchase| %>	
+			   <% if !purchase.cart.nil? %>
+			   <div class="well well-small">			    
+			     <% @price=0%>
+				  <% purchase.cart.batteries.order(:code).uniq.each do |battery| %>	
+					 <h3><%= link_to battery.code, battery %></h3>
+					 Цена: <%= battery.price* purchase.cart.batteries.where("code = ?", battery.code).count%>
+				 <% @price+=battery.price* purchase.cart.batteries.where("code = ?", battery.code).count%>
+				 Р
+				 <br>
+				 Количество: <%= purchase.cart.batteries.where("code = ?", battery.code).count%> шт.
+				  <% end %>
+				  <br>
+				  <h3>
+				  Сумма заказа: <%= @price%>
+				  <h3>
+				</div>
+				<% end %>	
+		      <% end %>		
+			<% else %>	
+				Вы еще не совершали покупок.
+			<% end %>
+		    </p>
+        </div>
+	</div>
+</div>

@@ -1,12 +1,12 @@
 ﻿<p id="notice"><%= notice %></p>
-<h2 align="center">Батареи для ноутбука модели BS-<%= @model.name %></h2>
+<h2 align="center">Батареи для ноутбука модели BS-<%= @model.name %>:</h2>
 <div class="container">
 	<div class="row">
 		<div class="span8 offset1">	
 			<p>
 			<% if @model.batteries.count>0 %>
-			  <% @company.models.order(:name).each do |m| %>	
-				 <%= link_to m.name, m %></td>
+			  <% @model.batteries.order(:code).each do |battery| %>	
+				 <h3><%= link_to battery.code, battery %></h3>
 				 <br>
 		      <% end %>		
 			<% else %>	

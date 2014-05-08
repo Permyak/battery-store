@@ -9,8 +9,7 @@
 			<p>
 			<% if @company.models.count>0 %>
 			  <% @company.models.order(:name).each do |m| %>	
-				 <%= link_to m.name, m %></td>
-				 <br>
+				 <h3><%= link_to m.name, m %></h3>
 		      <% end %>		
 			<% else %>	
 				Извините, в магазине нет батарей для ноутбуков от данной компании.

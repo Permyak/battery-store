@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140507055143) do
+ActiveRecord::Schema.define(version: 20140508004624) do
 
   create_table "batteries", force: true do |t|
     t.string   "code"
@@ -32,10 +32,25 @@ ActiveRecord::Schema.define(version: 20140507055143) do
     t.datetime "image_updated_at"
   end
 
+  create_table "batteries_carts", force: true do |t|
+    t.integer "battery_id"
+    t.integer "cart_id"
+  end
+
   create_table "batteries_models", id: false, force: true do |t|
     t.integer "battery_id"
     t.integer "model_id"
   end
+
+  create_table "carts", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "purchase_id"
+  end
+
+  add_index "carts", ["purchase_id"], name: "index_carts_on_purchase_id"
+  add_index "carts", ["user_id"], name: "index_carts_on_user_id"
 
   create_table "comments", force: true do |t|
     t.string   "text"
@@ -69,6 +84,14 @@ ActiveRecord::Schema.define(version: 20140507055143) do
 
   add_index "models", ["company_id"], name: "index_models_on_company_id"
 
+  create_table "purchases", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "purchases", ["user_id"], name: "index_purchases_on_user_id"
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
@@ -76,6 +99,7 @@ ActiveRecord::Schema.define(version: 20140507055143) do
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

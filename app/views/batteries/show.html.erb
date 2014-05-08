@@ -4,12 +4,15 @@
 <div class="container">
 		<div class="row">
             <div class="span3 offset1">
+			<p id="notice"><%= notice %></p>
 			<%= link_to image_tag("logo.jpg", alt: "batterystore.com"), root_path %>
 			  <p id="battery_price_info"> Цена: <strong><%= @battery.price %>P</strong></p>
 			  <div align=center>
-			   <a href="#">
-			     <button class="btn btn-success" >Купить</button>
-			   </a>
+				 <%= form_tag("/add/"+@battery.code, method: "put", battery: @battery.code) do %>	
+						<div class="input-append">
+							<%= submit_tag("Купить", :class=>'btn btn-success') %>
+						</div>
+				 <% end %>
 			  </div>
 			</div>
 			<div class="span5">
@@ -49,23 +52,30 @@
 		</div>
 		<div class="row">
             <div class="span8 offset3">
-			  <% @battery.comments.each do |comment| %>
+			  <% @battery.comments.order(:created_at).each do |comment| %>
 				<div class="well well-small">
 				  <%= comment.text %>
 				<br>
 				<br>
-				<%= comment.created_at.strftime("%d %b. %Y %H:%M") %> <strong> <%= comment.user.name %></strong>
+				<%= (comment.created_at+6*60*60).strftime("%d %b. %Y %H:%M") %> <strong> <%= comment.user.name %></strong>
 					</div>
 				<% end %>
-				<div align=center>
-				<%= form_tag("/send/"+@battery.code, method: "get", battery: @battery.code) do %>	
-					<div class="input-append">
-			<%= text_area_tag "text", nil, rows: 5, :placeholder => "Оставьте свой отзыв о товаре BS-Battery332:", :class=>"span8"%>
-			<br>
-			<%= submit_tag("Отправить", :class=>'btn') %>
-			</div>
-		</div> 
-	<% end %>
+				<% if signed_in?%>
+					<div align=center>
+						<%= form_tag("/send/"+@battery.code, method: "get", battery: @battery.code) do %>	
+						<div class="input-append">
+							<%= text_area_tag "text", nil, rows: 5, :placeholder => "Оставьте свой отзыв о товаре BS-Battery332:", :class=>"span8"%>
+							<br>
+							<%= submit_tag("Отправить", :class=>'btn') %>
+						</div>
+						<% end %>
+					</div>
+				<% else %>
+					<div align=center>
+						<h3> <%= link_to "Войдите", signin_path %>, чтобы оставлять комментарии. </h3>
+					</div>
+					<br><br>
+				<% end %>
 			</div>
 		</div>
 </div>

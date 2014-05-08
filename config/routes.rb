@@ -1,4 +1,8 @@
 WhoAreBetter::Application.routes.draw do
+  resources :purchases
+
+  resources :carts
+
   resources :comments
 
   resources :models
@@ -22,6 +26,9 @@ WhoAreBetter::Application.routes.draw do
   match '/cart', to: 'pages#cart', via: 'get'
   match '/info/:searchline(.:format)', to: 'infos#show', via: 'get'
   match '/send/:battery(.:format)', to: 'comments#add', via: 'get'
+  match '/add/:battery(.:format)', to: 'carts#add', via: 'put'
+  match '/remove/:battery(.:format)', to: 'carts#remove', via: 'put'
+  match '/checkout/', to: 'carts#checkout', via: 'put'
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

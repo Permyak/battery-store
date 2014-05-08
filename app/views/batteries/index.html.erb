@@ -1,4 +1,5 @@
-﻿<h2 align="center">Список батарей</h2>
+﻿<% if signed_in? && admin? %>
+<h2 align="center">Список батарей</h2>
 
 <table>
   <thead>
@@ -44,3 +45,4 @@
 
 <%= link_to 'Новая батарея', new_battery_path %>
 <br><br><br><br>
+<% end %>

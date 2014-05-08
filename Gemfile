@@ -8,6 +8,7 @@ gem 'bcrypt-ruby', '3.1.2'
 gem 'nokogiri'
 gem 'russian', '~> 0.6.0'
 gem "paperclip", "~> 3.5.3"
+gem 'robokassa'
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

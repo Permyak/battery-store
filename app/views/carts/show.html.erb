@@ -1,0 +1,40 @@
+﻿<p id="notice"><%= notice %></p>
+
+<h2 align="center">
+  Товары в вашей корзине
+</h2>
+<div class="container">
+	<div class="row">
+		<div class="span8 offset1">	
+			<p>
+			<% if @cart.batteries.count>0 %>
+			  <% @price=0 
+			  @cart.batteries.order(:code).uniq.each do |battery| %>	
+			    <div class="well well-small">
+				 <h3><%= link_to battery.code, battery %></h3>
+				 Цена: <%= battery.price* @cart.batteries.where("code = ?", battery.code).count%>
+				 <% @price+=battery.price* @cart.batteries.where("code = ?", battery.code).count%>
+				 Р
+				 <br>
+				 Количество: <%= @cart.batteries.where("code = ?", battery.code).count%> шт.
+				 <%= form_tag("/remove/"+battery.code, method: "put", battery: battery.code) do %>	
+						<div class="input-append">
+							<%= submit_tag("Удалить", :class=>'btn btn-danger') %>
+						</div>
+				 <% end %>
+				</div>
+		      <% end %>	
+			  <div align=center>
+			     <%= form_tag("/checkout/", method: "put") do %>	
+						<div class="input-append">
+							<%= submit_tag("Оформить заказ на "+@price.to_s+" Р", :class=>'btn btn-success') %>
+						</div>
+				 <% end %>
+				 </div>
+			<% else %>	
+				В корзине нет батарей для ноутбуков.
+			<% end %>
+		    </p>
+        </div>
+	</div>
+</div>
